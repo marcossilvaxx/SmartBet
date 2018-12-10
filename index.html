@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html ng-app="app">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>SmartBet - Apostas Online</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
+
+        <!--AngularJS-->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.32/angular.min.js"></script>
+
+        <!--App-->
+        <script src="js/app.js"></script>
+
+        <!--Controllers-->
+        <script src="js/controllers/indexCtrl.js"></script>
+    </head>
+    <body ng-controller="indexCtrl">
+        <div class="container">
+            <nav class="nav-extended">
+                <div class="nav-wrapper">
+                    <a href="#" class="brand-logo">SmartBet</a>
+                    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li><a href="badges.html">Components</a></li>
+                    </ul>
+                </div>
+                <div class="nav-content">
+                    <ul class="tabs tabs-transparent">
+                        <li class="tab"><a class="active" href="#BSA" ng-init="carregarDados('BSA')">Brasileirão - Série A</a></li>
+                        <li class="tab"><a href="#SA" ng-click="carregarDados('SA')">Campeonato Italiano</a></li>
+                        <li class="tab"><a href="#PD" ng-click="carregarDados('PD')">La Liga</a></li>
+                        <li class="tab"><a href="#PL" ng-click="carregarDados('PL')">Premier League</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <ul class="sidenav" id="mobile-demo">
+                <li><a href="badges.html">Components</a></li>
+            </ul>
+
+            <h5>Escolha a partida e tente sua sorte!</h5>
+
+            <!--<div ng-repeat="competicao in dados" id={{competicao.competition.code}} class="col s12">{{competicao.competition.name}}</div>-->
+            <div id="BSA" class="col s12">
+                {{dados.BSA.competition.name}}<br>
+                <div class="cards">
+                    <div class="card" ng-repeat="partida in dados.BSA.matches | filter: {status: 'scheduled'}">
+                        <div class="card-content">
+                            <p>{{partida.awayTeam.name}}<br>x<br>{{partida.homeTeam.name}}</p><br>
+                            <b>Data: {{partida.utcDate | date: 'dd/MM/yyyy'}}</b><br>
+                            <b>Horário: {{partida.utcDate | date: 'HH:mm'}}</b>
+                        </div>
+                        <div class="card-action">
+                            <a href="#" class="activator">APOSTAR</a>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+                            <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3>Nenhuma partida encontrada</h3>
+                    <p>Este campeonato se encerrou. :/</p>
+                </div>
+                <br>
+            </div>
+            <div id="SA" class="col s12">
+                {{dados.SA.competition.name}}<br>
+                <div class="cards">
+                    <div class="card" ng-repeat="partida in dados.SA.matches | filter: {status: 'scheduled'}">
+                        <div class="card-content">
+                            <p>{{partida.awayTeam.name}}<br>x<br>{{partida.homeTeam.name}}</p><br>
+                            <b>Data: {{partida.utcDate | date: 'dd/MM/yyyy'}}</b><br>
+                            <b>Horário: {{partida.utcDate | date: 'HH:mm'}}</b>
+                        </div>
+                        <div class="card-action">
+                            <a href="#" class="activator">APOSTAR</a>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+                            <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="PD" class="col s12">
+                {{dados.PD.competition.name}}<br>
+                <div class="cards">
+                    <div class="card" ng-repeat="partida in dados.PD.matches | filter: {status: 'scheduled'}">
+                        <div class="card-content">
+                            <p>{{partida.awayTeam.name}}<br>x<br>{{partida.homeTeam.name}}</p><br>
+                            <b>Data: {{partida.utcDate | date: 'dd/MM/yyyy'}}</b><br>
+                            <b>Horário: {{partida.utcDate | date: 'HH:mm'}}</b>
+                        </div>
+                        <div class="card-action">
+                            <a href="#" class="activator">APOSTAR</a>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+                            <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="PL" class="col s12">
+                {{dados.PL.competition.name}}<br>
+                <div class="cards">
+                    <div class="card" ng-repeat="partida in dados.PL.matches | filter: {status: 'scheduled'}">
+                        <div class="card-content">
+                            <p>{{partida.awayTeam.name}}<br>x<br>{{partida.homeTeam.name}}</p><br>
+                            <b>Data: {{partida.utcDate | date: 'dd/MM/yyyy'}}</b><br>
+                            <b>Horário: {{partida.utcDate | date: 'HH:mm'}}</b>
+                        </div>
+                        <div class="card-action">
+                            <a href="#" class="activator">APOSTAR</a>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+                            <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="preloader-center" ng-show="loading">
+                <div class="preloader-wrapper big active">
+                    <div class="spinner-layer spinner-blue-only">
+                        <div class="circle-clipper left">
+                            <div class="circle"></div>
+                        </div>
+                        <div class="gap-patch">
+                            <div class="circle"></div>
+                        </div>
+                        <div class="circle-clipper right">
+                            <div class="circle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scripts-->
+        <script>M.AutoInit();</script>
+    </body>
+</html>
