@@ -48,7 +48,7 @@
             <div id="BSA" class="col s12">
                 {{dados.BSA.competition.name}}<br>
                 <div class="cards">
-                    <div class="card" ng-repeat="partida in dados.BSA.matches | filter: {status: 'scheduled'}">
+                    <div class="card" ng-repeat="partida in dados.BSA.matches">
                         <div class="card-content">
                             <p>{{partida.awayTeam.name}}<br>x<br>{{partida.homeTeam.name}}</p><br>
                             <b>Data: {{partida.utcDate | date: 'dd/MM/yyyy'}}</b><br>
@@ -58,7 +58,7 @@
                             <a href="#" class="activator">APOSTAR</a>
                         </div>
                         <div class="card-reveal">
-                            <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+                            <span class="card-title grey-text text-darken-4">PLACAR<i class="material-icons right">close</i></span>
                             <p>Here is some more information about this product that is only revealed once clicked on.</p>
                         </div>
                     </div>
@@ -72,7 +72,7 @@
             <div id="SA" class="col s12">
                 {{dados.SA.competition.name}}<br>
                 <div class="cards">
-                    <div class="card" ng-repeat="partida in dados.SA.matches | filter: {status: 'scheduled'}">
+                    <div class="card" ng-repeat="partida in dados.SA.matches | limitTo: 10">
                         <div class="card-content">
                             <p>{{partida.awayTeam.name}}<br>x<br>{{partida.homeTeam.name}}</p><br>
                             <b>Data: {{partida.utcDate | date: 'dd/MM/yyyy'}}</b><br>
@@ -82,8 +82,8 @@
                             <a href="#" class="activator">APOSTAR</a>
                         </div>
                         <div class="card-reveal">
-                            <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                            <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                            <span class="card-title grey-text text-darken-4">PLACAR<i class="material-icons right close-icon" style="position:absolute;">close</i></span>
+                            <img width="25%" ng-src="{{getEscudo(partida.awayTeam.id)}}"><input placeholder="Casa" type="number" class="validate goal"> X <input placeholder="Fora" type="number" class="validate goal">
                         </div>
                     </div>
                 </div>
@@ -91,7 +91,7 @@
             <div id="PD" class="col s12">
                 {{dados.PD.competition.name}}<br>
                 <div class="cards">
-                    <div class="card" ng-repeat="partida in dados.PD.matches | filter: {status: 'scheduled'}">
+                    <div class="card" ng-repeat="partida in dados.PD.matches">
                         <div class="card-content">
                             <p>{{partida.awayTeam.name}}<br>x<br>{{partida.homeTeam.name}}</p><br>
                             <b>Data: {{partida.utcDate | date: 'dd/MM/yyyy'}}</b><br>
@@ -110,7 +110,7 @@
             <div id="PL" class="col s12">
                 {{dados.PL.competition.name}}<br>
                 <div class="cards">
-                    <div class="card" ng-repeat="partida in dados.PL.matches | filter: {status: 'scheduled'}">
+                    <div class="card" ng-repeat="partida in dados.PL.matches">
                         <div class="card-content">
                             <p>{{partida.awayTeam.name}}<br>x<br>{{partida.homeTeam.name}}</p><br>
                             <b>Data: {{partida.utcDate | date: 'dd/MM/yyyy'}}</b><br>
