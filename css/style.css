@@ -28,3 +28,14 @@ nav{
     display: flex;
     flex-wrap: wrap;
 }
+
+.goal{
+    width: 20% !important;
+    font-size: 20px !important;
+    text-align: center;
+}
+
+.close-icon{
+    position: absolute;
+    right: 5%;
+}
